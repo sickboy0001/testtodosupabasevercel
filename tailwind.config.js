@@ -12,7 +12,16 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      colors: {
+        primary: {
+          light: "#626262",
+          main: "#3F51B5",
+          dark: "#212121",
+        },
+      },
     },
   },
-  plugins: [],
+  // plugins: [
+  //   require("tailwindcss/plugin/material-ui"),
+  // ],
 }

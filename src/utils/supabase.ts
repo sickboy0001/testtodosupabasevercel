@@ -8,4 +8,6 @@ export const supabase = createClient(
   supabaseAnonKey!
 );
 
+
+
 export default supabase

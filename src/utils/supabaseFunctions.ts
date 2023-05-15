@@ -28,4 +28,26 @@ export const deleteTodo = async(id:number)=>{
 
   
 }
+export const login = async(email:string,password:string) =>{
+    const result = await supabase.auth.signInWithPassword({
+        email: email,
+        password: password,
+    });
+    // console.log(result);
+    return result
+      
+}
+export const singUp = async(email:string,password:string)=>{
+    const result = await supabase.auth.signUp({
+        email: email,
+        password: password,
+      });
+    return result
+}
 
+export const reset = async(email:string)=>{
+    const result = await supabase.auth.resetPasswordForEmail(
+         email
+      );
+    return result
+}
