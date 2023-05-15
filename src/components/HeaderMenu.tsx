@@ -16,7 +16,7 @@ const HeaderMenu = () => {
 
                     return (
                       <Link key={item.href} href={item.href} legacyBehavior>
-                      <a  className="px-4 py-1 mt-2 text-sm text-gray-500 md:mt-0 hover:text-blue-600 focus:outline-none focus:shadow-outline">{item.label}</a>
+                      <a  className="px-5 py-1 mt-2 text-sm text-gray-500 md:mt-0 hover:text-blue-600 focus:outline-none focus:shadow-outline">{item.label}</a>
                       </Link>
                     )
                   })
