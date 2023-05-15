@@ -1,5 +1,5 @@
 import { Todo } from '@/utils/interface';
-import { deleteTodo, getAllTodos } from '@/utils/tableTodos';
+import { archivedTodo, getAllTodos } from '@/utils/tableTodos';
 import React from 'react'
 
 type Props={
@@ -7,11 +7,11 @@ type Props={
   userId:string,
   setTodos:React.Dispatch<any>,
 }
-function TodoApp(props:Props) {
+function TodoList(props:Props) {
   const {todos,userId,setTodos} =props;
 
   const handleDelete=async(id:number)=>{
-    await deleteTodo(id)
+    await archivedTodo(id)
     let todos = await getAllTodos(userId);
     setTodos(todos);
   };
@@ -33,4 +33,4 @@ function TodoApp(props:Props) {
   )
 }
 
-export default TodoApp;
+export default TodoList;

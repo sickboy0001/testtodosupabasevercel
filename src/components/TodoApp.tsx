@@ -1,58 +1,73 @@
-import React, { useEffect, useState } from 'react'
-import TodoList from './TodoList';
-import { addTodo, getAllTodos } from '@/utils/tableTodos';
-import { getUserStorage , getUserIdStorage } from '@/utils/LocalStorageUser';
+import React, { useEffect, useState } from "react";
+import TodoList from "./TodoList";
+import TodoDetailList from "./TodoDetailList";
+import { addTodo, getAllTodos } from "@/utils/tableTodos";
 
-const LOGIN_EMAIL='local_todo_test_email'
+import { getUserIdStorage } from "@/utils/LocalStorageUser";
+
+const LOGIN_EMAIL = "local_todo_test_email";
 
 function TodoApp() {
-  const [todos , setTodos] = useState<any>([])
-  const [title, setTitle]= useState("")
+  const [todos, setTodos] = useState<any>([]);
+  const [task, setTask] = useState("");
   const [userId, setUserId] = useState("");
 
-
-  useEffect(()=>{
-    const getTodos= async ()=>{
-      const todos = await getAllTodos(userId);
-      setTodos(todos);
-    }
+  useEffect(() => {
+    const getTodos = async () => {
+      if (userId !== "") {
+        const todos = await getAllTodos(userId);
+        setTodos(todos);
+      }
+    };
     getTodos();
-  },[]);
+  }, [userId]);
 
   useEffect(() => {
-    // const thisuserId = getUserIdStorage()
-    const getUserId= async ()=>{
-        const userid = await getUserIdStorage() 
-        setUserId(userid);
-    }
-    getUserId()
+    const getUserId = async () => {
+      const userid = await getUserIdStorage();
+      setUserId(userid);
+    };
+    getUserId();
   }, []);
-
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if(title==="") return ;
-    if(userId==="") return ;
-    console.log(`${userId} - ${title}`)
-    const result =await addTodo(userId,title)
+    if (task === "") return;
+    if (userId === "") return;
+    console.log(`${userId} - ${task}`);
+    const result = await addTodo(userId, task);
     let todos = await getAllTodos(userId);
     setTodos(todos);
-    setTitle("");
-
-  }
+    setTask("");
+  };
 
   return (
-    <section className='text-center mb-2 text-2xl  font-medium'>
-        <h3>SupaBase Tod</h3>
-        <form onSubmit={(e)=> handleSubmit(e)}>
-            <input type="text" className='mr-2 shadow-lg p-1 outline-none' onChange={(e)=> setTitle(e.target.value)} value={title}/>
-            <button className='shadow-md border-2 px-1 py-1 rounded-lg bg-green-200'>
-                add
-            </button>
+    <section className="mb-2 text-2xl  font-medium  ">
+      <div className="text-center w-full max-w-xl  mx-auto">
+        <h3>Todolist</h3>
+        <form onSubmit={(e) => handleSubmit(e)}>
+          <input
+            type="text"
+            className="mr-2 shadow-lg p-1 outline-none"
+            onChange={(e) => {
+              // console.log(e.target.value);
+              setTask(e.target.value);
+            }}
+            value={task}
+          />
+          <button className="shadow-md border-2 px-1 py-1 rounded-lg bg-green-200">
+            add
+          </button>
         </form>
-        <TodoList todos={todos} userId={userId} setTodos={setTodos}/>
+        <TodoList todos={todos} userId={userId} setTodos={setTodos} />
+      </div>
+
+      <div className="w-full max-w-7xl  mx-auto text-center ">
+        <h3>Todolist-Detail</h3>
+        <TodoDetailList todos={todos} userId={userId} setTodos={setTodos} />
+      </div>
     </section>
-  )
+  );
 }
 
 export default TodoApp;

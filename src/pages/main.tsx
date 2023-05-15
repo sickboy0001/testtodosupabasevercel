@@ -8,7 +8,7 @@ export default function Home() {
 
         <Header/>
         <h1>main</h1>
-        <div className="z-10 w-full max-w-xl items-center font-mono text-sm mx-auto">
+        <div className="z-10 items-center font-mono text-sm">
           <TodoApp />
       </div>
     </main>
