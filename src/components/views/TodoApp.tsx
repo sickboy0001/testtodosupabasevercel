@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import TodoList from "./TodoList";
-import TodoDetailList from "./TodoDetailList";
-import { addTodo, getAllTodos } from "@/utils/tableTodos";
+
+// import { addTodo, getAllTodos } from "@/bizlogic/Todos";
 
 import { getUserIdStorage } from "@/utils/LocalStorageUser";
+import { addTodo, getAllTodos } from "@/bizlogic/todos";
+import TodoList from "../templates/TodoList";
+import TodoDetailList from "../templates/TodoDetailList";
 
 const LOGIN_EMAIL = "local_todo_test_email";
 
@@ -62,9 +64,11 @@ function TodoApp() {
         <TodoList todos={todos} userId={userId} setTodos={setTodos} />
       </div>
 
-      <div className="w-full max-w-7xl  mx-auto text-center ">
-        <h3>Todolist-Detail</h3>
-        <TodoDetailList todos={todos} userId={userId} setTodos={setTodos} />
+      <div>
+        <h3 className="flex justify-center">Todolist-Detail</h3>
+        <div className="flex justify-center">
+          <TodoDetailList todos={todos} userId={userId} setTodos={setTodos} />
+        </div>
       </div>
     </section>
   );

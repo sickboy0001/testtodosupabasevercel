@@ -1,6 +1,7 @@
-import { Todo } from "@/utils/interface";
-import { getAllTodos } from "@/utils/tableTodos";
+import { Todo } from "@/interface/Todos";
 import React from "react";
+import TableDatetime from "@/components/parts/TableDatetime";
+import TableButton from "../parts/TableButton";
 const moment = require("moment");
 
 type Props = {
@@ -10,10 +11,24 @@ type Props = {
 };
 function TodoDetailList(props: Props) {
   const { todos, userId, setTodos } = props;
+  function handleChangeArchived(id: number): void {
+    // await archivedChangeTodo(id);
+    // let todos = await getAllTodos(userId);
+    // setTodos(todos);
+    // throw new Error("Function not implemented.");
+    console.log(id);
+  }
+
+  function handleChangeCompleted(id: number): void {
+    // throw new Error("Function not implemented.");
+    console.log(id);
+  }
+
+  // console.log(todos);
 
   return (
     <div>
-      <table className="border-collapse border border-gray-400">
+      <table className="border-collapse border border-gray-400 text-lg">
         <thead>
           <tr>
             <th className="border border-gray-400 p-2">id</th>
@@ -22,7 +37,6 @@ function TodoDetailList(props: Props) {
             <th className="border border-gray-400 p-2">is_completed</th>
             <th className="border border-gray-400 p-2">create_at</th>
             <th className="border border-gray-400 p-2">update_at</th>
-            <th className="border border-gray-400 p-2">order</th>
           </tr>
         </thead>
         <tbody>
@@ -33,18 +47,25 @@ function TodoDetailList(props: Props) {
                 {todo.task}
               </td>
               <td className="border border-gray-400 p-2">
-                {todo.is_archived ? "true" : ""}
+                <div>
+                  <TableButton
+                    tablecaption={todo.is_completed ? "true" : "false"}
+                    tableonclick={handleChangeArchived(todo.id)}
+                  />
+                </div>
               </td>
               <td className="border border-gray-400 p-2">
-                {todo.is_complated ? "true" : ""}
+                <TableButton
+                  tablecaption={todo.is_completed ? "true" : "false"}
+                  tableonclick={handleChangeCompleted(todo.id)}
+                />
               </td>
               <th className="border border-gray-400 p-2">
-                {moment(todo.created_at).format("YYYY/MM/DD hh:mm:ss")}
+                <TableDatetime tabledatetime={todo.created_at} />
               </th>
               <th className="border border-gray-400 p-2">
-                {moment(todo.updated_at).format("YYYY/MM/DD hh:mm:ss")}
+                <TableDatetime tabledatetime={todo.updated_at} />
               </th>
-              <th className="border border-gray-400 p-2">{todo.order}</th>
             </tr>
           ))}
         </tbody>

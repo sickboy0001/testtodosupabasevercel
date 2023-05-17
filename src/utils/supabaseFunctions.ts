@@ -33,7 +33,7 @@ export const login = async(email:string,password:string) =>{
         email: email,
         password: password,
     });
-    // console.log(result);
+    console.log(result);
     return result
       
 }
