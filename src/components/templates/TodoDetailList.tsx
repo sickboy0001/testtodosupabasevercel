@@ -2,6 +2,13 @@ import { Todo } from "@/interface/Todos";
 import React from "react";
 import TableDatetime from "@/components/parts/TableDatetime";
 import TableButton from "../parts/TableButton";
+import {
+  completedTodo,
+  getAllTodos,
+  toArchivedTodo,
+  toCompletedTodo,
+} from "@/bizlogic/todos";
+
 const moment = require("moment");
 
 type Props = {
@@ -11,20 +18,33 @@ type Props = {
 };
 function TodoDetailList(props: Props) {
   const { todos, userId, setTodos } = props;
-  function handleChangeArchived(id: number): void {
-    // await archivedChangeTodo(id);
-    // let todos = await getAllTodos(userId);
-    // setTodos(todos);
-    // throw new Error("Function not implemented.");
-    console.log(id);
-  }
 
-  function handleChangeCompleted(id: number): void {
-    // throw new Error("Function not implemented.");
-    console.log(id);
-  }
+  const handleClickChangeArchived = async (
+    id: number,
+    isToArchived: boolean
+  ) => {
+    {
+      console.log(`handleClickChangeArchived:id:${id} `);
+      await toArchivedTodo(id, isToArchived);
+      let todos = await getAllTodos(userId);
+      setTodos(todos);
+    }
+  };
+
+  const handleClickChangeCompleted = async (
+    id: number,
+    isToCompleted: boolean
+  ) => {
+    {
+      console.log(`id:${id} `);
+      await toCompletedTodo(id, isToCompleted);
+      let todos = await getAllTodos(userId);
+      setTodos(todos);
+    }
+  };
 
   // console.log(todos);
+  const arg = 1;
 
   return (
     <div>
@@ -49,16 +69,20 @@ function TodoDetailList(props: Props) {
               <td className="border border-gray-400 p-2">
                 <div>
                   <TableButton
-                    tablecaption={todo.is_completed ? "true" : "false"}
-                    tableonclick={handleChangeArchived(todo.id)}
-                  />
+                    onClick={handleClickChangeArchived}
+                    tableid={todo.id}
+                  >
+                    {todo.is_archived ? "true" : "false"}
+                  </TableButton>
                 </div>
               </td>
               <td className="border border-gray-400 p-2">
                 <TableButton
-                  tablecaption={todo.is_completed ? "true" : "false"}
-                  tableonclick={handleChangeCompleted(todo.id)}
-                />
+                  onClick={handleClickChangeCompleted}
+                  tableid={todo.id}
+                >
+                  {todo.is_completed ? "true" : "false"}
+                </TableButton>
               </td>
               <th className="border border-gray-400 p-2">
                 <TableDatetime tabledatetime={todo.created_at} />

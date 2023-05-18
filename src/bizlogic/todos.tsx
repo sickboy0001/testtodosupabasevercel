@@ -3,6 +3,8 @@ import {
   selectAllTodos,
   updateTodoArchived,
   updateTodoCompleted,
+  updateTodoToArchived,
+  updateTodoToCompleted,
 } from "@/tables/Todos";
 
 export const getAllTodos = async (user_id: any) => {
@@ -21,4 +23,12 @@ export const archivedTodo = async (user_id: any) => {
 
 export const completedTodo = async (user_id: any) => {
   return updateTodoCompleted(user_id);
+};
+
+export const toCompletedTodo = async (user_id: any, toCompleted: boolean) => {
+  return updateTodoToCompleted(user_id, toCompleted);
+};
+
+export const toArchivedTodo = async (user_id: any, toArchived: boolean) => {
+  return updateTodoToArchived(user_id, toArchived);
 };

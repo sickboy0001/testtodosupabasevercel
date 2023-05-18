@@ -6,6 +6,7 @@ import { getUserIdStorage } from "@/utils/LocalStorageUser";
 import { addTodo, getAllTodos } from "@/bizlogic/todos";
 import TodoList from "../templates/TodoList";
 import TodoDetailList from "../templates/TodoDetailList";
+import SubTitle from "../parts/SubTitle";
 
 const LOGIN_EMAIL = "local_todo_test_email";
 
@@ -46,7 +47,8 @@ function TodoApp() {
   return (
     <section className="mb-2 text-2xl  font-medium  ">
       <div className="text-center w-full max-w-xl  mx-auto">
-        <h3>Todolist</h3>
+        <h3></h3>
+        <SubTitle Title="Todolist" Description="" />
         <form onSubmit={(e) => handleSubmit(e)}>
           <input
             type="text"
@@ -64,8 +66,8 @@ function TodoApp() {
         <TodoList todos={todos} userId={userId} setTodos={setTodos} />
       </div>
 
-      <div>
-        <h3 className="flex justify-center">Todolist-Detail</h3>
+      <div className="text-center w-full max-w-5xl  mx-auto">
+        <SubTitle Title="Todolist-Detail" Description="" />
         <div className="flex justify-center">
           <TodoDetailList todos={todos} userId={userId} setTodos={setTodos} />
         </div>
