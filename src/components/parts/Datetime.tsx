@@ -5,9 +5,9 @@ type Props = {
   tabledatetime: string;
 };
 
-function TableDatetime(props: Props) {
+function Datetime(props: Props) {
   const { tabledatetime } = props;
   return <div>{moment(tabledatetime).format("YYYY/MM/DD hh:mm:ss")}</div>;
 }
 
-export default TableDatetime;
+export default Datetime;

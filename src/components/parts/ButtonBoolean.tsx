@@ -3,12 +3,11 @@ const moment = require("moment");
 import classNames from "classnames";
 
 type Props = {
-  tableid: number;
   children: string;
-  onClick: (id: number, revvalue: boolean) => Promise<void>;
+  handleClick: () => Promise<void>;
 };
-function TableButton(props: Props) {
-  const { children, onClick, tableid } = props;
+function ButtonBoolean(props: Props) {
+  const { children, handleClick } = props;
   const inputClass = classNames(
     "hover:bg-blue-700",
     "text-white",
@@ -29,10 +28,15 @@ function TableButton(props: Props) {
   );
   const revvalue = children === "true" ? false : true;
   return (
-    <button className={inputClass} onClick={() => onClick(tableid, revvalue)}>
+    <button
+      className={inputClass}
+      onClick={() => {
+        handleClick();
+      }}
+    >
       {children}
     </button>
   );
 }
 
-export default TableButton;
+export default ButtonBoolean;
