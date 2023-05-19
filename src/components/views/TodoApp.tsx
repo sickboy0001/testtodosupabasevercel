@@ -65,13 +65,6 @@ function TodoApp() {
         </form>
         <TodoList todos={todos} userId={userId} setTodos={setTodos} />
       </div>
-
-      <div className="text-center w-full max-w-5xl  mx-auto">
-        <SubTitle Title="Todolist-Detail" Description="" />
-        <div className="flex justify-center">
-          <TodoDetailList todos={todos} userId={userId} setTodos={setTodos} />
-        </div>
-      </div>
     </section>
   );
 }
