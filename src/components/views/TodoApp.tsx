@@ -48,7 +48,7 @@ function TodoApp() {
     <section className="mb-2 text-2xl  font-medium  ">
       <div className="text-center w-full max-w-xl  mx-auto">
         <h3></h3>
-        <SubTitle Title="Todolist" Description="" />
+        <SubTitle Title="Todolist" Description=""></SubTitle>
         <form onSubmit={(e) => handleSubmit(e)}>
           <input
             type="text"

@@ -1,12 +1,23 @@
 import React from "react";
+import classNames from "classnames";
 
 type Props = {
   Title: string;
   Description: string;
+  children?: React.JSX.Element | null | undefined;
 };
-function SubTitle(props: Props) {
-  const { Title, Description } = props;
-  return <div className="flex ">{Title}</div>;
+
+function SubTitle(props: Props): React.JSX.Element {
+  const { Title, Description, children } = props;
+  const labelClass = classNames("text-3xl");
+
+  return (
+    <div className={labelClass}>
+      {Title}
+      {/* <div className="text-3xl">test</div> */}
+      {children}
+    </div>
+  );
 }
 
 export default SubTitle;

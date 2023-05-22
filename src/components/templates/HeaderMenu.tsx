@@ -6,6 +6,8 @@ const NAV_ITEMS = [
   { href: "/sample", label: "Sample" },
   { href: "/main", label: "Main" },
   { href: "/samplednd", label: "samplednd" },
+  { href: "/goodthings", label: "3goodthings" },
+  { href: "/goodthingsabout", label: "about" },
 ];
 
 const HeaderMenu = () => {
@@ -15,6 +17,7 @@ const HeaderMenu = () => {
         {NAV_ITEMS.map((item) => {
           return (
             <Link key={item.href} href={item.href} legacyBehavior>
+              {/* { href: "/goodthingsabout", label: "about" }, */}
               <a className="px-5 py-1 mt-2 text-sm text-gray-500 md:mt-0 hover:text-blue-600 focus:outline-none focus:shadow-outline">
                 {item.label}
               </a>
