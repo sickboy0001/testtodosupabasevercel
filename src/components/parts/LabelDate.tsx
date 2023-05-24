@@ -14,8 +14,12 @@ function LabelDate(props: Props) {
     "border-gray-100",
     "shadow-lg",
     "m-0.5",
-    "dark:text-gray-400",
-    "font-semibold bg-sky-50",
+
+    {
+      "bg-green-50": date.getDate() !== new Date().getDate(),
+      "bg-green-200": date.getDate() === new Date().getDate(),
+    },
+    "font-semibold",
     "text-center",
     {
       "text-red-500": date.getDay() === 0,

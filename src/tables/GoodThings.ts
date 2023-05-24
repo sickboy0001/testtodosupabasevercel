@@ -3,7 +3,7 @@ import {supabase} from "../utils/supabase";
 export const selectAllGoodThings = async(user_id: any)=>{
     const todos = await supabase.from("three_good_things").select("*")
     .eq("user_id",user_id)
-    .order('updated_at',  {ascending: false });
+    .order('updated_at',  {ascending: true });
     return todos.data;
 }
 
