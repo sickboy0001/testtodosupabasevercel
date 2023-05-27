@@ -1,57 +1,20 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { login } from "@/utils/supabaseFunctions";
 import { setUserStorage, getUserStorage } from "@/utils/LocalStorageUser";
+import LoginModal from "./LoginModal";
 
 // import { KEYS, setItem, getItem, removeItem } from "@/utils/LocalStorage";
 
-const LOGIN_EXPIRES_SEC = 172800;
-
 const HeaderLogin = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [localStorageEmail, setLocalStorageEmail] = useState("");
 
+  console.log(`HeaderLogin:`);
   useEffect(() => {
     setLocalStorageEmail(getUserStorage()?.email ?? "");
-    console.log(getUserStorage()?.email);
-  }, []);
+    console.log(`HeaderLogin:setLocalStorageEmail:${getUserStorage()?.email}`);
+  }, [email]);
 
-  //useLocalStorage フック 使えそう？
-  const handleLogin = async () => {
-    let result = await login(email, password);
-    const { data, error } = result;
-
-    // ログイン
-    if (result.error === null) {
-      // console.log(data.user)
-      // setIsLoggedIn(true);
-      // setActiveEmail(email);
-      // local(KEYS.SAMPLE_TEXT, email);
-      setErrorMessage("");
-
-      var expire_date = new Date();
-      expire_date.setSeconds(expire_date.getSeconds() + LOGIN_EXPIRES_SEC);
-      console.log(expire_date);
-
-      setUserStorage(data.user, expire_date);
-      setLocalStorageEmail(data.user?.email ?? "");
-      // console.log('handleLogin OK');
-      // console.log(localStorageEmail);
-    } else {
-      console.log(result);
-      // setIsLoggedIn(false);
-      // setActiveEmail('');
-      setErrorMessage(result.error.message);
-      // var date = new Date();
-      // date.setSeconds(date.getSeconds());
-      // console.log(date);
-      setUserStorage("", new Date());
-      setLocalStorageEmail("");
-      console.log("handleLogin NG");
-      console.log(localStorageEmail);
-    }
-  };
   //ログアウト
   const handleLogout = () => {
     // setIsLoggedIn(false);
@@ -60,12 +23,9 @@ const HeaderLogin = () => {
     // console.log(date);
     setUserStorage("", new Date());
     setLocalStorageEmail("");
-    console.log("handleLogout");
-    console.log(localStorageEmail);
+    // console.log("handleLogout");
+    // console.log(localStorageEmail);
   };
-
-  //サインイン
-  const handleSignIn = () => {};
 
   return (
     <div>
@@ -83,7 +43,7 @@ const HeaderLogin = () => {
           </div>
         ) : (
           <div className="flex  ">
-            <form action="">
+            {/* <form action="">
               <input
                 type="text"
                 value={email}
@@ -110,7 +70,8 @@ const HeaderLogin = () => {
               className="shadow-sm border-1 px-2 mr-2 rounded-lg bg-blue-200"
             >
               SignIn
-            </button>
+            </button> */}
+            <LoginModal setEmail={setEmail} />
           </div>
         )}
       </div>

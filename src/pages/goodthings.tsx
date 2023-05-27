@@ -1,5 +1,5 @@
+import Header from "@/components/templates/Header";
 import GoodThings from "@/components/views/GoodThings";
-import Header from "@/components/views/Header";
 
 export default function goodthings() {
   return (

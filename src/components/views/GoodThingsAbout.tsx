@@ -1,5 +1,5 @@
 import React from "react";
-import SubTitle from "../parts/SubTitle";
+import SubTitle from "../Atoms/SubTitle";
 
 function Test() {
   return (

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { addTodo, getAllTodos } from "@/utils/supabaseFunctions";
-import GuestTodoList from "../templates/GuestTodoList";
+import GuestTodoList from "../Organisms/GuestTodoList";
 
 function GuestTodoApp() {
   const [todos, setTodos] = useState<any>([]);

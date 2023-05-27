@@ -1,4 +1,4 @@
-import Header from "@/components/views/Header";
+import Header from "@/components/templates/Header";
 import Dndapp from "@/components/views/Dndapp";
 
 export default function samplednd() {

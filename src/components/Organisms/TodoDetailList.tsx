@@ -1,7 +1,7 @@
 import { Todo } from "@/interface/Todos";
 import React from "react";
-import Datetime from "@/components/parts/Datetime";
-import ButtonBoolean from "../parts/ButtonBoolean";
+import Datetime from "@/components/Atoms/Datetime";
+import ButtonBoolean from "../Atoms/ButtonBoolean";
 import {
   completedTodo,
   getAllTodos,
@@ -16,7 +16,7 @@ type Props = {
   userId: string;
   setTodos: React.Dispatch<any>;
 };
-function TodoOrder(props: Props) {
+function TodoDetailList(props: Props) {
   const { todos, userId, setTodos } = props;
 
   const handleClickChangeArchived = async (
@@ -53,6 +53,9 @@ function TodoOrder(props: Props) {
           <tr>
             <th className="border border-gray-400 p-2">id</th>
             <th className="border border-gray-400 p-2">task</th>
+            <th className="border border-gray-400 p-2">is_archived</th>
+            <th className="border border-gray-400 p-2">is_completed</th>
+            <th className="border border-gray-400 p-2">create_at</th>
             <th className="border border-gray-400 p-2">update_at</th>
           </tr>
         </thead>
@@ -63,6 +66,35 @@ function TodoOrder(props: Props) {
               <td className="border border-gray-400 p-2 text-left">
                 {todo.task}
               </td>
+              <td className="border border-gray-400 p-2">
+                <div>
+                  <ButtonBoolean
+                    handleClick={() =>
+                      handleClickChangeArchived(
+                        todo.id,
+                        !todo.is_archived ? true : false
+                      )
+                    }
+                  >
+                    {todo.is_archived ? "true" : "false"}
+                  </ButtonBoolean>
+                </div>
+              </td>
+              <td className="border border-gray-400 p-2">
+                <ButtonBoolean
+                  handleClick={() =>
+                    handleClickChangeCompleted(
+                      todo.id,
+                      !todo.is_completed ? true : false
+                    )
+                  }
+                >
+                  {todo.is_completed ? "true" : "false"}
+                </ButtonBoolean>
+              </td>
+              <th className="border border-gray-400 p-2">
+                <Datetime tabledatetime={todo.created_at} />
+              </th>
               <th className="border border-gray-400 p-2">
                 <Datetime tabledatetime={todo.updated_at} />
               </th>
@@ -74,4 +106,4 @@ function TodoOrder(props: Props) {
   );
 }
 
-export default TodoOrder;
+export default TodoDetailList;

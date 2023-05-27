@@ -1,37 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import TGTCalendarWeek from "../templates/TGTCalendarWeek";
-import SubTitle from "../parts/SubTitle";
+import SubTitle from "../Atoms/SubTitle";
 import { getAllGoodThings } from "@/bizlogic/goodthings";
-import TGTAdd from "../templates/TGTAdd";
+import TGTAdd from "../Atoms/TextArea";
+import TGTCalendarWeek from "../Organisms/TGTCalendarWeek";
 
-export const database3GTId = process.env.NEXT_PUBLIC_NOTION_DATABASE_3GT_ID;
 export const guest_user_id = process.env.NEXT_PUBLIC_GUEST_USER_ID;
-const initialposts = [
-  {
-    current_date: "2023-05-23",
-    contents: "Keepガッツリ整理した・・・Keepの数などを確認するすべほしいな。",
-  },
-  {
-    current_date: "2023-05-22",
-    contents:
-      "新しいシナリオを・・楽しかったけど、これがゴールかどうかはこれから判断する。",
-  },
-  {
-    current_date: "2023-05-21",
-    contents:
-      "Notionの講義面白かった。リンクドテーブル、ボード→サブグループなど使いこなしていないこと多数。 共有は難しいけどどうするがテーマ。Supabaseで認証できれば、有効利用可能かと。",
-  },
-  {
-    current_date: "2023-05-20",
-    contents:
-      "不明点は多いけど、何とか動くレベル。ただし、最適を探せばもっと答えは出る。 しばらくはそれを目指すかな・・・順番を持つ、不要なAllReadは避ける、並び順整理、できるだけComponents・Partsを当初の指針に合うようにするなどなど",
-  },
-  {
-    current_date: "2023-05-20",
-    contents: "Keepガッツリ整理した・・・Keepの数などを確認するすべほしいな。",
-  },
-];
 
 function GoodThings() {
   const [goodThings, setGoodThings] = useState<any>();

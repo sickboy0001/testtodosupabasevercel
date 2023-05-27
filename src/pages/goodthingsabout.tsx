@@ -1,4 +1,4 @@
-import Header from "@/components/views/Header";
+import Header from "@/components/templates/Header";
 import GoodThingsAbout from "@/components/views/GoodThingsAbout";
 
 export default function goodthingsabout() {

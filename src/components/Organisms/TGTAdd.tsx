@@ -1,11 +1,11 @@
 import React, { Dispatch, useEffect, useState } from "react";
 
-import SubTitle from "../parts/SubTitle";
+import SubTitle from "../Atoms/SubTitle";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import classNames from "classnames";
-import TextArea from "../parts/TextArea";
+import TextArea from "../Atoms/TextArea";
 
 import { addGoodThing, getAllGoodThings } from "@/bizlogic/goodthings";
 

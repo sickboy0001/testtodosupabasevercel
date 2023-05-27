@@ -3,10 +3,9 @@ import React, { useEffect, useState } from "react";
 // import { addTodo, getAllTodos } from "@/bizlogic/Todos";
 
 import { getUserIdStorage } from "@/utils/LocalStorageUser";
-import { addTodo, getAllTodos } from "@/bizlogic/todos";
-import TodoList from "../templates/TodoList";
-import TodoDetailList from "../templates/TodoDetailList";
-import SubTitle from "../parts/SubTitle";
+import { getAllTodos } from "@/bizlogic/todos";
+import SubTitle from "../Atoms/SubTitle";
+import TodoDetailList from "../Organisms/TodoDetailList";
 
 const LOGIN_EMAIL = "local_todo_test_email";
 

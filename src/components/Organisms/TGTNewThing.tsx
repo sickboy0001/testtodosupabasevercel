@@ -1,7 +1,7 @@
 import React, { Dispatch, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
-import TextArea from "../parts/TextArea";
-import Button from "../parts/Button";
+import TextArea from "../Atoms/TextArea";
+import Button from "../Atoms/Button";
 import { addGoodThing, getAllGoodThings } from "@/bizlogic/goodthings";
 
 type Props = {
@@ -102,7 +102,7 @@ export function TGTNewThing(props: Props) {
             id="textarea_message"
             rows={parseInt("3")}
             className={textAreaClass}
-            placeholder="Today GoodThing Write....regist when shift + Enter"
+            placeholder="Today GoodThing Write....Entry when lost focus"
             onChange={(event) => setValue(event.target.value)}
             onBlur={() => handleBlur()}
             value={value}

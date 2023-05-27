@@ -1,7 +1,7 @@
 import React, { Dispatch, useCallback, useState } from "react";
 import { CalendarDay } from "./TGTCalendarDay";
 import { GetYmdString } from "@/lib/datetime";
-import SubTitle from "../parts/SubTitle";
+import SubTitle from "../Atoms/SubTitle";
 
 const moment = require("moment");
 
@@ -92,7 +92,7 @@ function TGTCalendarWeek(props: any) {
     events[key] = [];
   }
 
-  console.log(posts);
+  // console.log(posts);
   // 各イベントを対応する日付の配列に追加
   for (const date in events) {
     if (posts !== undefined && posts !== null) {

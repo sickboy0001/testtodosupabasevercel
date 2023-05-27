@@ -1,8 +1,8 @@
 import React, { Dispatch } from "react";
-import LabelDate from "../parts/LabelDate";
-import LabelThing from "../parts/LabelThing";
+import LabelDate from "../Atoms/LabelDate";
+import LabelThing from "../Atoms/LabelThing";
 import classNames from "classnames";
-import { ButtonToThing } from "../parts/ButtonToThing";
+import { ButtonToThing } from "../Atoms/ButtonToThing";
 import { getAllGoodThings, archivedGoodThing } from "@/bizlogic/goodthings";
 import { TGTNewThing } from "./TGTNewThing";
 const moment = require("moment");

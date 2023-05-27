@@ -1,4 +1,4 @@
-import Header from "@/components/views/Header";
+import Header from "@/components/templates/Header";
 import TodoApp from "@/components/views/TodoApp";
 import TodoDetailApp from "@/components/views/TodoDetailApp";
 import TodoOrderApp from "@/components/views/TodoOrderApp";

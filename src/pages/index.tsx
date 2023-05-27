@@ -1,4 +1,4 @@
-import Header from "@/components/views/Header";
+import Header from "@/components/templates/Header";
 import TodoApp from "@/components/views/GuestTodoApp";
 
 export default function Home() {
