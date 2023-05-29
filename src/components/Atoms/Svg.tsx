@@ -4,8 +4,8 @@ import React from "react";
 const moment = require("moment");
 
 function Svg(props: any) {
-  console.log(props.onClick);
-  console.log(props.pathd);
+  //   console.log(props.onClick);
+  //   console.log(props.pathd);
   return (
     <>
       <svg

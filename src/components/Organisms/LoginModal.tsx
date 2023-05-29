@@ -30,18 +30,20 @@ function LoginModal(props: any) {
 
     let result = await login(inputEmail, password);
 
-    console.log("handleLogin start");
     const { data, error } = result;
     // ログイン
     if (result.error === null) {
       // console.log(data.user);
 
+      console.log(`handleLogin start${data.user}`);
+      console.log(data.user);
       var expire_date = new Date();
       expire_date.setSeconds(expire_date.getSeconds() + LOGIN_EXPIRES_SEC);
 
       setUserStorage(data.user, expire_date);
       setLocalStorageEmail(data.user?.email ?? "");
       setEmail(inputEmail);
+      setOpenLogin(false);
       // console.log("handleLogin OK");
     } else {
       // console.log(result);
@@ -54,7 +56,7 @@ function LoginModal(props: any) {
   return (
     <section>
       <button
-        className="shadow-sm border-1 px-2 mr-2 rounded-lg bg-blue-500 text-white"
+        className="shadow-sm border-2 px-5 mr-2  text-normal rounded-xl bg-blue-500 text-white"
         onClick={handleLoginOpen}
       >
         Login
@@ -145,7 +147,7 @@ function LoginModal(props: any) {
                   <path d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
                 </svg>
               </span>
-              <span className="ml-2">You don't have an account?</span>
+              <span className="ml-2">You donot have an account?</span>
             </a>
           </div>
         </div>
