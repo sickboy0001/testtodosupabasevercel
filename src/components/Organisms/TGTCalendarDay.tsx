@@ -5,6 +5,7 @@ import classNames from "classnames";
 import { ButtonToThing } from "../Atoms/ButtonToThing";
 import { getAllGoodThings, archivedGoodThing } from "@/bizlogic/goodthings";
 import { TGTNewThing } from "./TGTNewThing";
+import TGTLabelThing from "./TGTLabelThing";
 const moment = require("moment");
 
 type Props = {
@@ -57,7 +58,13 @@ export function CalendarDay(props: Props) {
                     x
                   </ButtonToThing>
                   <div>
-                    <LabelThing>{post.contents}</LabelThing>
+                    <TGTLabelThing
+                      userId={userId}
+                      id={post.id}
+                      setGoodThings={setGoodThings}
+                    >
+                      {post.contents}
+                    </TGTLabelThing>
                   </div>
                 </span>
 

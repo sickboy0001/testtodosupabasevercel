@@ -3,7 +3,7 @@ import {supabase} from "../utils/supabase";
 export const selectAllGoodThings = async(user_id: any)=>{
     const todos = await supabase.from("three_good_things").select("*")
     .eq("user_id",user_id)
-    .order('updated_at',  {ascending: true });
+    .order('created_at',  {ascending: true });
     return todos.data;
 }
 
@@ -18,7 +18,19 @@ export const insertGoodThing = async(user_id: any,cur_date:Date,contents:string)
     return {data,error}
 }
 
+export const updateGoodThingThing=async (id:number , thing :Text)=>{
+    console.log(`updateGoodThingThing:${id}:${thing}`)
+    const { data, error } = await supabase
+    .from('three_good_things')
+    .update(
+            { contents: thing, updated_at: new Date()}
+            )
+        .eq
+        ( "id", id )
 
+    return {data,error}
+    
+}
 export const updateGoodThingArchived = async(id:number)=>{
     console.log(`updateGoodThingArchived:${id}`)
     const { data, error } = await supabase

@@ -25,7 +25,6 @@ export function ButtonToThing(props: any) {
     <span
       className={deleteButtonClassName}
       onClick={() => {
-        console.log("onclick");
         props.handleClick();
       }}
     >

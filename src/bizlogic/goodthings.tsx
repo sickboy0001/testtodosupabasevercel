@@ -2,6 +2,7 @@ import {
   insertGoodThing,
   selectAllGoodThings,
   updateGoodThingArchived,
+  updateGoodThingThing,
 } from "@/tables/GoodThings";
 
 export const getAllGoodThings = async (user_id: any) => {
@@ -21,6 +22,10 @@ export const addGoodThing = async (
 
 export const archivedGoodThing = async (id: any) => {
   return updateGoodThingArchived(id);
+};
+
+export const updateThingGoodThing = async (id: number, thing: Text) => {
+  return updateGoodThingThing(id, thing);
 };
 
 // export const completedTodo = async (user_id: any) => {

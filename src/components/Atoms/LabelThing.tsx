@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import classNames from "classnames";
+import { TGTRewriteThing } from "../Organisms/TGTRewriteThing";
 
 type Props = {
   children: any;
+  handleClick: any;
 };
 
 function LabelThing(props: Props) {
-  const { children } = props;
+  const { children, handleClick } = props;
   const labelClass = classNames(
     "border",
     "border-gray-400",
@@ -22,10 +24,9 @@ function LabelThing(props: Props) {
   );
 
   return (
-    <div className={labelClass}>
-      {children}
-      <div className="text-base"></div>
-    </div>
+    <>
+      <div className={labelClass}>{children}</div>
+    </>
   );
 }
 
