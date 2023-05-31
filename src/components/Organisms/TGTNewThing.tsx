@@ -15,18 +15,6 @@ export function TGTNewThing(props: Props) {
   const [value, setValue] = useState("");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  const inputButtonClass = classNames(
-    "text-black",
-    "font-bold",
-    "bg-teal-100",
-    "hover:bg-teal-200",
-    "border",
-    "py-1",
-    "px-2",
-    "rounded-2xl",
-    "w-full",
-    "rounded-lg"
-  );
   const textAreaClass = classNames(
     "block",
     "p-2.5",
@@ -34,7 +22,6 @@ export function TGTNewThing(props: Props) {
     "text-sm",
     "text-gray-900",
     "bg-gray-50",
-    "rounded-lg",
     "border",
     "border-gray-300",
     "focus:ring-blue-500",
@@ -87,10 +74,9 @@ export function TGTNewThing(props: Props) {
   // };
 
   return (
-    <div>
+    <div className="w-full text-black bg-teal-100 hover:bg-teal-200 font-extrabold rounded-2xl">
       {!isNewThing ? (
         <Button
-          className={inputButtonClass}
           handleClick={() => handleNewClick()}
           handleMouseDown={() => handleMouseDown()}
         >
@@ -109,7 +95,6 @@ export function TGTNewThing(props: Props) {
             ref={textareaRef}
           ></textarea>
           <Button
-            className={inputButtonClass}
             // handleClick={() => handleRegistClick()}
             handleMouseDown={() => handleRegistMouseDown()}
           >

@@ -4,32 +4,17 @@ import classNames from "classnames";
 
 type Props = {
   children: string;
-  className: any | null;
   handleClick?: () => Promise<void> | void;
   handleMouseDown?: () => Promise<void> | void;
 };
 function Button(props: Props) {
-  const { children, className, handleClick, handleMouseDown } = props;
+  const { children, handleClick, handleMouseDown } = props;
 
-  const inputClass =
-    className === null
-      ? classNames(
-          "hover:bg-blue-700",
-          "text-white",
-          "font-bold",
-          "py-1",
-          "px-2",
-          "rounded-2xl",
-          "w-full",
-          "rounded-lg",
-          "bg-blue-500",
-          "hover:bg-blue-700"
-        )
-      : className;
+  // const inputClass = className === null ? classNames("w-full") : className;
 
   return (
     <button
-      className={inputClass}
+      className="w-full"
       onClick={() => handleClick && handleClick()}
       onMouseDown={() => handleMouseDown && handleMouseDown()}
     >

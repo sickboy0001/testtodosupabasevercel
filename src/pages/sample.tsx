@@ -16,16 +16,6 @@ export default function Home() {
   return (
     <main>
       <Header />
-      <button className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-md">
-        ポップアップを表示
-      </button>
-      <div>
-        <button onClick={handleClick}>モーダルを開く</button>
-        <Modal isOpen={open} onRequestClose={handleClose}>
-          <div>モーダルの内容</div>
-          <button onClick={handleClose}>閉じる</button>
-        </Modal>
-      </div>
       <h1>sample</h1>
       <p>To Guest Page </p>
 

@@ -95,7 +95,6 @@ export function TGTRewriteThing(props: Props) {
           ref={textareaRef}
         ></textarea>
         <Button
-          className={inputButtonClass}
           // handleClick={() => handleRegistClick()}
           handleMouseDown={() => handleRegistMouseDown()}
         >

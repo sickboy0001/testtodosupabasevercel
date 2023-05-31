@@ -6,7 +6,10 @@ import LabelLogin from "../Atoms/LabelLogin";
 import InputLogin from "../Atoms/InputLogin";
 import Svg from "../Atoms/Svg";
 
-const LOGIN_EXPIRES_SEC = 172800;
+const LOGIN_EXPIRES_SEC = 864000;
+//3600 1h
+//172800 48h 2d
+//864000     10d
 
 function LoginModal(props: any) {
   const { setEmail } = props;
